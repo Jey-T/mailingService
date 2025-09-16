@@ -18,11 +18,11 @@ const app = express();
 const server = createServer(app);
 
 app.use(express.json());
+app.use(errorHandler);
 
 app.get("/health", healthCheck);
 app.post("/send-mail", sendMail);
 app.all("/{*any}", notFound);
-app.use(errorHandler);
 
 server.listen(4000, () => {
   console.log("Mailing service is running on port 4000");

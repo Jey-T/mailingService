@@ -1,12 +1,12 @@
-import { Request, Response, NextFunction } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import { AppError } from '../handlers/errors';
 
-export const errorHandler = (
-    err: Error | AppError,
+export const errorHandler = async (
+    err: Error,
     _: Request,
     res: Response,
+    _2: NextFunction
 ) => {
-
     let statusCode = 500;
     let message = 'Internal Server Error';
 
@@ -16,6 +16,6 @@ export const errorHandler = (
     }
 
     res.status(statusCode).json({
-        error: message,
+        message
     });
 };

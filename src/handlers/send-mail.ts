@@ -5,7 +5,6 @@ import { AppError, ValidationError } from "./errors";
 
 export default async function sendMail(req: Request, res: Response, next: NextFunction) {
   const result = messageSchema.safeParse(req.body);
-
   if (!result.success) {
     throw new ValidationError("Invalid request");
   }
@@ -25,14 +24,14 @@ export default async function sendMail(req: Request, res: Response, next: NextFu
       throw new AppError("Mail rejected", 500);
     }
 
-    console.log("Mail sent successfully");
-    return res.status(200).json({ message: "Mail sent successfully" });
+    return res.sendStatus(200);
 
   } catch (error) {
 
     console.log(error);
     console.log("Failed to send mail");
-    throw new AppError("Failed to send mail", 500);
+    next(new AppError("Failed to send mail", 500));
+    return;
 
   }
 }
