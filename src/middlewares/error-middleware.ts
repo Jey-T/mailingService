@@ -3,9 +3,9 @@ import { AppError } from '../handlers/errors';
 
 export const errorHandler = async (
     err: Error,
-    _: Request,
+    req: Request,
     res: Response,
-    _2: NextFunction
+    next: NextFunction
 ) => {
     let statusCode = 500;
     let message = 'Internal Server Error';
@@ -15,7 +15,7 @@ export const errorHandler = async (
         message = err.message;
     }
 
-    res.status(statusCode).json({
+    return next(res.status(statusCode).json({
         message
-    });
+    }));
 };
