@@ -13,7 +13,7 @@
 		"zod": "^4.1.8"
 	},
 	"scripts": {
-		"start": "pm2 start --interpreter tsx src/service --name portfolio-mailing-service",
+		"start": "pm2 start --interpreter tsx src/service.ts --name portfolio-mailing-service",
 		"stop": "pm2 stop portfolio-mailing-service",
 		"delete": "pm2 delete portfolio-mailing-service",
 		"restart": "pm2 restart portfolio-mailing-service",
