@@ -21,7 +21,7 @@ app.use(express.json());
 
 app.get("/health", healthCheck);
 app.post("/send-mail", sendMail);
-app.all("*", notFound);
+app.all("/{*any}", notFound);
 app.use(errorHandler);
 
 server.listen(4000, () => {
