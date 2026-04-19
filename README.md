@@ -70,34 +70,8 @@ Content-Type: application/json
 GET /health
 ```
 
-## Development & Production
-
-### PM2 Process Management
-
-```bash
-# Start the service with PM2
-pnpm start
-
-# Monitor service status
-pm2 status
-
-# View logs
-pnpm run logs
-
-# Restart service
-pnpm run restart
-
-# Stop service
-pnpm run stop
-
-# Remove from PM2
-pnpm run delete
-```
-
-
 ## Production Features
 
-- **PM2 Process Management** - Auto-restart, monitoring, and easy scaling
 - **Environment validation** - Service fails fast if configuration is invalid
 - **Graceful shutdown** - Handles SIGTERM/SIGINT for clean deployments
 - **Error logging** - Centralized error handling with proper HTTP status codes
