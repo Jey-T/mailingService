@@ -8,16 +8,11 @@
 		"dotenv": "^17.2.2",
 		"express": "^5.1.0",
 		"nodemailer": "^7.0.6",
-		"pm2": "^6.0.11",
 		"tsx": "^4.20.5",
 		"zod": "^4.1.8"
 	},
 	"scripts": {
-		"start": "pm2 start --interpreter tsx src/service.ts --name portfolio-mailing-service",
-		"stop": "pm2 stop portfolio-mailing-service",
-		"delete": "pm2 delete portfolio-mailing-service",
-		"restart": "pm2 restart portfolio-mailing-service",
-		"logs": "pm2 logs portfolio-mailing-service",
+		"start": "tsx src/service.ts",
 		"dev": "tsx watch src/service"
 	},
 	"devDependencies": {
